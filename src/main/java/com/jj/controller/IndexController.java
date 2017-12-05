@@ -15,6 +15,6 @@ public class IndexController {
     public String welcome(Map<String, Object> model) {
         System.out.println("inside dddd");
         model.put("message", this.message);
-        return "webapp/WEB-INF/jsp/index.jsp";
+        return "index";
     }
 }
