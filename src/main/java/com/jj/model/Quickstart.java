@@ -15,7 +15,6 @@ import com.google.api.client.util.store.FileDataStoreFactory;
 import com.google.api.services.gmail.GmailScopes;
 import com.google.api.services.gmail.model.*;
 import com.google.api.services.gmail.Gmail;
-import com.sun.xml.internal.messaging.saaj.packaging.mime.MessagingException;
 import org.springframework.stereotype.Service;
 
 import javax.mail.Session;
@@ -115,7 +114,7 @@ public class Quickstart {
        // try {
             //MimeMessage email = createEmail("", "", "Subject: dope", "Body: dope");
             //sendMessage(service, "me", email);
-        //} catch (MessagingException e) {
+        //} catch ( e) {
             // TODO Auto-generated catch block
           //  e.printStackTrace();
         //}
@@ -134,14 +133,14 @@ public class Quickstart {
     }
 
 
-    public static void sendMessage(Gmail service, String userId, MimeMessage email) throws MessagingException, IOException ,Exception{
+    public static void sendMessage(Gmail service, String userId, MimeMessage email) throws  IOException ,Exception{
         Message message = createMessageWithEmail(email);
         message = service.users().messages().send(userId, message).execute();
 
         System.out.println("Message id: " + message.getId());
         System.out.println(message.toPrettyString());
     }
-    public static Message createMessageWithEmail(MimeMessage email) throws MessagingException, IOException, Exception {
+    public static Message createMessageWithEmail(MimeMessage email) throws IOException, Exception {
         ByteArrayOutputStream bytes = new ByteArrayOutputStream();
         email.writeTo(bytes);
         String encodedEmail = Base64.encodeBase64URLSafeString(bytes.toByteArray());
@@ -150,7 +149,7 @@ public class Quickstart {
         return message;
     }
     public static MimeMessage createEmail(String to, String from, String subject,
-                                          String bodyText) throws MessagingException,Exception {
+                                          String bodyText) throws Exception {
         Properties props = new Properties();
         Session session = Session.getDefaultInstance(props, null);
 

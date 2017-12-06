@@ -5,8 +5,9 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 public class RedirectRestController {
-   // @RequestMapping("/testredirect")
+    @RequestMapping("/testredirect")
     public String greeting() {
+        System.out.println("inside redirect");
         return "WTddF";
     }
 }

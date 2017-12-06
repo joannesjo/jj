@@ -17,7 +17,7 @@ public class InstaMojoRestController {
         return instaMojo.createPayment();
     }
 
-    @RequestMapping("/testredirect")
+    //@RequestMapping("/testredirect")
     public String redirectstatus( @RequestParam("transaction_id") String tid) {
         return instaMojo.getPaymentStatus(tid);
     }
