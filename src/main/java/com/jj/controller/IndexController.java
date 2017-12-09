@@ -11,7 +11,7 @@ import java.util.Map;
 public class IndexController {
     private String message = "Hello World";
 
-    @RequestMapping("/")
+    @RequestMapping("/index")
     public String welcome(Map<String, Object> model) {
         System.out.println("inside dddd");
         model.put("message", this.message);
